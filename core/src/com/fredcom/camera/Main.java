@@ -38,9 +38,27 @@ public class Main extends ApplicationAdapter {
 	@Override
 	public void render () {
 
-		System.out.println("Position X: " + X + "   " + "Positon Y: " + Y);
+		System.out.println("Position X: " + X + "   " + "Positon Y: " + Y + "   " + "SpeedCamera: " + speedCamera);
 
 		//Update
+
+		if(Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_ADD))
+		{
+			if(speedCamera < 100)
+			{
+				speedCamera+=5;
+			}
+		}
+		else if(Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_SUBTRACT))
+		{
+			if(speedCamera > 5)
+			{
+				speedCamera-=5;
+			}
+
+		}
+
+
 		if(Gdx.input.isKeyPressed(Input.Keys.UP))
 		{
 			if(Y < 770 - speedCamera)
