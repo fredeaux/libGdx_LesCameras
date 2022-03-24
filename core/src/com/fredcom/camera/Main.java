@@ -3,18 +3,16 @@ package com.fredcom.camera;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.math.Matrix4;
-import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 public class Main extends ApplicationAdapter {
 	SpriteBatch batch;
-	Texture bg;
+	Texture bg02;
+	Texture raisin;
 	ShapeRenderer sr;
 	OrthographicCamera camera;
 	int X = 400 ;
@@ -25,7 +23,8 @@ public class Main extends ApplicationAdapter {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		bg = new Texture("bg02.jpg");
+		bg02 = new Texture("bg02.jpg");
+		raisin = new Texture("raisin.png");
 		sr = new ShapeRenderer();
 		camera = new OrthographicCamera();
 		camera.viewportWidth = 800;
@@ -96,9 +95,9 @@ public class Main extends ApplicationAdapter {
 		ScreenUtils.clear(0, 0, 0, 1);
 
 		batch.begin();
-
 		batch.setProjectionMatrix(camera.combined);
-		batch.draw(bg, 0, 0);
+		batch.draw(bg02, 0, 0);
+		//batch.draw(raisin,0,0);
 		batch.end();
 
 		camera.update();
